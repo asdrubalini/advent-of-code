@@ -70,10 +70,10 @@ pub struct CPU {
 }
 
 impl CPU {
-    fn new(instructions: &[Instruction]) -> Self {
+    fn new(instructions: &[Instruction], a: u32, b: u32) -> Self {
         CPU {
-            a: 0,
-            b: 0,
+            a,
+            b,
             instructions: instructions.to_owned(),
             pc: 0,
         }
@@ -157,18 +157,22 @@ impl Solution for TwentyThree {
     }
 
     fn solve_first(parsed: &Self::Parsed) -> Self::Output {
-        let mut cpu = CPU::new(&parsed);
+        let mut cpu = CPU::new(&parsed, 0, 0);
 
         while let Ok(_) = cpu.step() {}
 
         cpu.b
     }
 
-    fn solve_second(_parsed: &Self::Parsed) -> Self::Output {
-        0
+    fn solve_second(parsed: &Self::Parsed) -> Self::Output {
+        let mut cpu = CPU::new(&parsed, 1, 0);
+
+        while let Ok(_) = cpu.step() {}
+
+        cpu.b
     }
 
     fn expected_solutions() -> (Self::Output, Self::Output) {
-        (255, 0)
+        (255, 334)
     }
 }

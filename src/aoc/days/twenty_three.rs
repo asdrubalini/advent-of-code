@@ -83,6 +83,13 @@ impl CPU {
         self.pc = (self.pc as isize).checked_add(offset).unwrap() as usize;
     }
 
+    fn read_register(&self, register: Register) -> u32 {
+        match register {
+            Register::A => self.a,
+            Register::B => self.b,
+        }
+    }
+
     fn step(&mut self) -> Result<(), ()> {
         let inst = *self.instructions.get(self.pc).ok_or(())?;
 
@@ -103,12 +110,7 @@ impl CPU {
             Instruction::Jie(register, offset) => {
                 // jump if even
 
-                let val = match register {
-                    Register::A => self.a,
-                    Register::B => self.b,
-                };
-
-                if val % 2 == 0 {
+                if self.read_register(register) % 2 == 0 {
                     self.jump(offset)
                 } else {
                     self.pc += 1;
@@ -117,12 +119,7 @@ impl CPU {
             Instruction::Jio(register, offset) => {
                 // jump if one
 
-                let val = match register {
-                    Register::A => self.a,
-                    Register::B => self.b,
-                };
-
-                if val == 1 {
+                if self.read_register(register) == 1 {
                     self.jump(offset)
                 } else {
                     self.pc += 1;

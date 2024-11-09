@@ -30,7 +30,9 @@ pub trait Solution {
         let first = Self::solve_first(&parsed);
         let second = Self::solve_second(&parsed);
 
-        assert_eq!(first, Self::expected_solutions().0);
-        assert_eq!(second, Self::expected_solutions().1);
+        let (a, b) = Self::expected_solutions();
+
+        assert_eq!(first, a);
+        assert_eq!(second, b);
     }
 }

@@ -1,3 +1,5 @@
+#![allow(unused_imports)]
+
 mod one;
 pub use one::One;
 mod two;

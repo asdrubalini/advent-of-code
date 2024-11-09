@@ -3,7 +3,7 @@
 version = 3
 
 [[package]]
-name = "advent-of-code-2015"
+name = "advent-of-code-2017"
 version = "0.0.1"
 dependencies = [
  "base16ct",

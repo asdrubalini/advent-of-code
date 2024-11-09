@@ -7,11 +7,11 @@ impl Solution for TwentyFour {
     type Parsed = Vec<u32>;
 
     fn input() -> &'static str {
-        include_str!("../inputs/24.txt")
+        ""
     }
 
-    fn parse_input(input: &'static str) -> Self::Parsed {
-        input.lines().map(|s| s.parse().unwrap()).collect()
+    fn parse_input(_input: &'static str) -> Self::Parsed {
+        vec![]
     }
 
     fn solve_first(_parsed: &Self::Parsed) -> Self::Output {

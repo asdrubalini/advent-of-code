@@ -1,3 +1,5 @@
+#![allow(unused_imports)]
+
 mod infinite_matrix;
 pub use infinite_matrix::{Coord, InfiniteMatrix};
 

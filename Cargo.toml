@@ -1,8 +1,8 @@
 [package]
-name = "advent-of-code-2015"
+name = "advent-of-code-2017"
 version = "0.0.1"
 edition = "2021"
-default-run = "advent-of-code-2015"
+default-run = "advent-of-code-2017"
 
 [dependencies]
 itertools = "0.13"
